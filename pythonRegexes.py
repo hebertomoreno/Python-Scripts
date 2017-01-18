@@ -59,3 +59,30 @@ endsWithNumber = re.compile(r'\d$')
 #character except for a newline
 #Matches any three character string that ends with 'at'
 atRegex = re.compile(r'.at')
+#(.*) is used to match everything and everything
+#This matches everything after First name and Last Name
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+#The DOTALL argument makes the dot character match all characters
+#including the newline character
+newLineRegex = re.compile('.*', re.DOTALL)
+#NOTE Remember the regexes are case sensitive
+#To make a regex case insensitive pass re.IGNORECASE 
+#or re.I as a second argument
+robocopRegex = re.compile(r'robocop', re.I)
+#The sub() method for Regex objects is passed to replace found
+#occurences with another string
+namesRegex = re.compile(r'Agent \w+')
+namesRegex.sub('CENSORED', 'Agent Alice gave the secret documents to Agent Bob.')
+#Use a number and a slash (\1, \2) to replace part of the 
+#Found text in the substitution, but replace the rest.
+#The number is the group number to keep in.
+agentNamesRegex = re.compile(r'Agent (\w)\w*')
+agentNamesRegex.sub(r'\1*****', 'Agent Alice is Agent Carol.')
+#When writing very long and multiple lined Regexes, 
+#The argument re.VERBOSE can be passed to the regex 
+#The thriple quotes (''') are used to create a multiline string
+phoneRegex = re.compile(r'''(
+	(\d{3}|\(d{3}\))?
+	)''', re.VERBOSE)
+#Second arguments are combined using the (|) 
+someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE)
