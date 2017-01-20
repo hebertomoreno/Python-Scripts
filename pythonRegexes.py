@@ -19,6 +19,8 @@ phoneNumRegex = re.compile(r'(\(\d\d\d\))(\d\d\d-\d\d\d\d)')
 heroRegex = re.compile(r'Batman|Tina Fey')
 #'Bat' followed by either man, mobile, copter or bat
 batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+#The question mark after the group to be searched indicates
+#That the item may or may not be there
 #'Bat' then zero or one times 'wo' then man
 #Catches 'Batman' and 'Batwoman'
 batRegex = re.compile(r'Bat(wo)?man')
@@ -85,4 +87,4 @@ phoneRegex = re.compile(r'''(
 	(\d{3}|\(d{3}\))?
 	)''', re.VERBOSE)
 #Second arguments are combined using the (|) 
-someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE)
+someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE )
